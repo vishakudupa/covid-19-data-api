@@ -119,25 +119,28 @@ def read_filter_data(file_name, req_args):
             return json.dumps(data)
         filtered_data = list()
         for row in data:
+            filter_pass_count = 0
             for arg in req_args.keys():
                 if arg in row:
                     value = str(req_args.get(arg))
                     if '<' in value:
                         try:
                             if int(row[arg]) < int(value.replace('<', '')):
-                                filtered_data.append(row)
+                                filter_pass_count += 1
                         except:
                             if (row[arg]) < value.replace('<', ''):
-                                filtered_data.append(row)
+                                filter_pass_count += 1
                     elif '>' in value:
                         try:
                             if int(row[arg]) > int(value.replace('>', '')):
-                                filtered_data.append(row)
+                                filter_pass_count += 1
                         except:
                             if (row[arg]) > value.replace('>', ''):
-                                filtered_data.append(row)
+                                filter_pass_count += 1
                     elif value.lower() in row[arg].lower():
-                        filtered_data.append(row)
+                        filter_pass_count += 1
+            if filter_pass_count == len(req_args):
+                filtered_data.append(row)
         return json.dumps(filtered_data)
 
 

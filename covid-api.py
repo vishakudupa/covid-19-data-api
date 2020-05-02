@@ -56,6 +56,20 @@ def get_data(url):
     return None
 
 
+def create_metadata(data):
+    states = set()
+    counties = set()
+    dates = set()
+    for row in data:
+        states.add(row['state'])
+        counties.add(row['county'])
+        dates.add(row['date'])
+    states = sorted(states)
+    counties = sorted(counties)
+    dates = sorted(dates)
+    return {'states': states, 'counties': counties, 'dates': dates}
+
+
 def reload():
     logging('Reloading data')
     data = get_data(US)
@@ -70,9 +84,12 @@ def reload():
         logging('Failed reloading data', US_STATES)
     data = get_data(US_COUNTIES)
     if data is not None:
-        write_json_to_file('us_counties.json', csv_to_json(data))
+        json_data = csv_to_json(data)
+        write_json_to_file('us_counties.json', json_data)
+        write_json_to_file('metadata.json', create_metadata(json_data))
     else:
         logging('Failed reloading data', US_COUNTIES)
+
     logging('Done reloading')
 
 
@@ -137,6 +154,13 @@ def us_counties_endpoint():
     return resp
 
 
+def metadata():
+    resp = flask.Response(read_filter_data('metadata.json', {}))
+    resp.headers['Access-Control-Allow-Origin'] = '*'
+    resp.content_type = 'application/json'
+    return resp
+
+
 def reload_on_demand():
     reload()
     return {'Success': True}
@@ -145,6 +169,7 @@ def reload_on_demand():
 app.add_url_rule('/', 'us_endpoint', us_endpoint)
 app.add_url_rule('/states/', 'us_states_endpoint', us_states_endpoint)
 app.add_url_rule('/counties/', 'us_counties_endpoint', us_counties_endpoint)
+app.add_url_rule('/metadata/', 'metadata', metadata)
 app.add_url_rule('/reload/', 'reload', reload_on_demand)
 
 

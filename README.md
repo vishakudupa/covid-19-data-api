@@ -1,4 +1,4 @@
-Covid 19 API's for USA
+Covid 19 API's for USA.
 Data source New York Times https://github.com/nytimes/covid-19-data.
 
 API Docs : https://documenter.getpostman.com/view/10051991/SzmZdLWK?version=latest

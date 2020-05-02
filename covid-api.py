@@ -104,6 +104,14 @@ def reload_worker():
         reload_worker()
 
 
+def init():
+    t1 = threading.Thread(target=reload_worker, args=())
+    t1.start()
+
+
+init()
+
+
 def read_filter_data(file_name, req_args):
     with open(file_name) as f:
         data = json.load(f)
@@ -174,7 +182,4 @@ app.add_url_rule('/reload/', 'reload', reload_on_demand)
 
 
 if __name__ == '__main__':
-    t1 = threading.Thread(target=reload_worker, args=())
-    t1.start()
     app.run(debug=False)
-    t1.join()

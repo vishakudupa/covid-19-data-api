@@ -107,3 +107,11 @@ GET 'https://blooming-basin-33031.herokuapp.com/counties
   }
 ]
 ```
+
+```
+https://blooming-basin-33031.herokuapp.com - Fetches all
+
+https://blooming-basin-33031.herokuapp.com?date=>2020-03-10 add filters
+
+filters can be key=<value or key=>value or key=value filters can be applied on any key
+```

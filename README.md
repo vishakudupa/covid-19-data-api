@@ -1,9 +1,9 @@
-Covid 19 API's for USA
+Covid 19 API's for USA.
 Data source New York Times https://github.com/nytimes/covid-19-data.
 
 API Docs : https://documenter.getpostman.com/view/10051991/SzmZdLWK?version=latest
 
- GET 'https://blooming-basin-33031.herokuapp.com/'
+ GET https://blooming-basin-33031.herokuapp.com/
 
 ```
 [
@@ -35,7 +35,7 @@ API Docs : https://documenter.getpostman.com/view/10051991/SzmZdLWK?version=late
 ]
 ```
 
- GET 'https://blooming-basin-33031.herokuapp.com/states/'
+ GET https://blooming-basin-33031.herokuapp.com/states/
 ```
 [
   {
@@ -69,7 +69,7 @@ API Docs : https://documenter.getpostman.com/view/10051991/SzmZdLWK?version=late
 ]
  ```
  
-GET 'https://blooming-basin-33031.herokuapp.com/counties
+GET https://blooming-basin-33031.herokuapp.com/counties
 
 ```
 [
@@ -108,10 +108,30 @@ GET 'https://blooming-basin-33031.herokuapp.com/counties
 ]
 ```
 
+GET 'https://blooming-basin-33031.herokuapp.com/metadata'
 ```
-https://blooming-basin-33031.herokuapp.com - Fetches all
-
-https://blooming-basin-33031.herokuapp.com?date=>2020-03-10 add filters
-
-filters can be key=<value or key=>value or key=value filters can be applied on any key
+{
+  "states": [
+    "Alabama",
+    "Alaska",
+    "Arizona",
+    "Arkansas",
+    "California",
+    "Colorado",
+    "Connecticut",
+    "Delaware",
+    "District of Columbia",
+    "Florida",
+    "Georgia",
+    "Guam",
+    "Hawaii",
+    "Idaho",
+    "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Louisiana"
+    ]
+}
 ```

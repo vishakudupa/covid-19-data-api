@@ -3,7 +3,7 @@ Data source New York Times https://github.com/nytimes/covid-19-data.
 
 API Docs : https://documenter.getpostman.com/view/10051991/SzmZdLWK?version=latest
 
- GET 'https://blooming-basin-33031.herokuapp.com/'
+ GET https://blooming-basin-33031.herokuapp.com/
 
 ```
 [
@@ -35,7 +35,7 @@ API Docs : https://documenter.getpostman.com/view/10051991/SzmZdLWK?version=late
 ]
 ```
 
- GET 'https://blooming-basin-33031.herokuapp.com/states/'
+ GET https://blooming-basin-33031.herokuapp.com/states/
 ```
 [
   {
@@ -69,7 +69,7 @@ API Docs : https://documenter.getpostman.com/view/10051991/SzmZdLWK?version=late
 ]
  ```
  
-GET 'https://blooming-basin-33031.herokuapp.com/counties
+GET https://blooming-basin-33031.herokuapp.com/counties
 
 ```
 [
@@ -106,4 +106,32 @@ GET 'https://blooming-basin-33031.herokuapp.com/counties
     "deaths": "11857"
   }
 ]
+```
+
+GET 'https://blooming-basin-33031.herokuapp.com/metadata'
+```
+{
+  "states": [
+    "Alabama",
+    "Alaska",
+    "Arizona",
+    "Arkansas",
+    "California",
+    "Colorado",
+    "Connecticut",
+    "Delaware",
+    "District of Columbia",
+    "Florida",
+    "Georgia",
+    "Guam",
+    "Hawaii",
+    "Idaho",
+    "Illinois",
+    "Indiana",
+    "Iowa",
+    "Kansas",
+    "Kentucky",
+    "Louisiana"
+    ]
+}
 ```
